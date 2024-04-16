@@ -1,0 +1,27 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+   int a;
+   int result_1[5];
+   float result_2[3];
+
+   ifstream mybin;
+   mybin.open("mybin.dat", ios::binary | ios::in);
+   mybin.read((char*)&a, 4);
+   mybin.read((char*)result_1, 20);
+   mybin.read((char*)result_2, 12);
+
+   cout << a << endl;
+   for (int i=0; i < 5; i++) {
+      cout << result_1[i] << endl;
+   }
+   for (int i = 0; i < 3; i++) {
+      cout << result_2[i] << endl;
+   }
+
+   mybin.close();
+
+   return 1;
+}
